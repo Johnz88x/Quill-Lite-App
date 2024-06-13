@@ -1,9 +1,7 @@
-﻿Creating an application for our Product Quill Lite SHawls
+﻿Creating an application for our Product Quill Lite Shawls
 
 
 2024-06-10 
-
-WORK LOG (Time in UTC)
 
 
 1420
@@ -104,52 +102,60 @@ Added the new model Quill.cs
 -Did the migration
 
 1920
--The intial migration was completed successfully
--The databse was created
-20240613061051_InitialCreate.cs 
+-The initial migration was completed successfully
+-The database was created
+-20240613061051_InitialCreate.cs 
 
 1925
 -Then tried added values to the database
 -the data was added successfully.
 1935
-change background layout
-Editted the _layout.cshtml for adding background image
-In the stylesheet in the body added the URL for background.
-The URL is added so that we can use images from online.
+-change background layout
+-Edited the _layout.cshtml for adding background image
+-In the stylesheet in the body added the URL for background.
+-The URL is added so that we can use images from online.
 
 2000
-Add an image in the list for display the product
+-Add an image in the list for display the product
 
 2010
-Then editted the file quill.cs inorder to add the imagepath to get the file.
-Also added the ImageFile used for handling the uploaded image
+-Then edited the file quill.cs in order to add the imagepath to get the file.
+-Also added the ImageFile used for handling the uploaded image
 
 2020
-Also editted the create and edit files
+-Also editted the create and edit files
 
 2025
-In create.cshtml added the form-group to upload the image
+-In create.cshtml added the form-group to upload the image
 
 2030
-Also editted the QuillsController.cs to handle the upload in the controller
- _hostEnvironment was added to handle the image upload
+-Also edited the QuillsController.cs to handle the upload in the controller
+-_hostEnvironment was added to handle the image upload
 
 2045
-Display the image in views
-editted Views/Quills/Index.cshtml file 
-The body part added the content for displaying the product image
+-Display the image in views
+-edited Views/Quills/Index.cshtml file 
+-The body part added the content for displaying the product image
 
 2100
-Updated the database
-Add Migration Quill_Lite_AppContext.cs
-Update database
+-Updated the database
+-Add Migration Quill_Lite_AppContext.cs
+-Update database
 
 2110
-Image migration completed successfully
-20240613061942_AddImage
+-Image migration completed successfully
+-20240613061942_AddImage
 
 2120
-Added images tried the application
+-Added images tried the application
 
 2130
-Successfully updated the application to display the products
+-Successfully updated the application to display the products
+
+2200
+-Added 5 contents to the Database in order to display the contents 
+-Included images to the products
+
+2210
+-Made some changes to the Homepage to change the background image.
+-The background image was changed successfully and completed successfully
