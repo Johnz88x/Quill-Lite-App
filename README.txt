@@ -3,8 +3,6 @@
 
 2024-06-10 
 
-WORK LOG (Time in UTC)
-
 
 1420
 Step-by-Step Process to Create "Quill Lite" Application
@@ -153,3 +151,11 @@ Added images tried the application
 
 2130
 Successfully updated the application to display the products
+
+2200
+Added 5 contents to the Database inorder to display the contents 
+Included images to the products
+
+2210
+Made some changes to the HomePage to change the background image.
+The background image was changed successfully and completed successfully
