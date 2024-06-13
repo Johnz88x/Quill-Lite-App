@@ -132,4 +132,24 @@ In create.cshtml added the form-group to upload the image
 
 2030
 Also editted the QuillsController.cs to handle the upload in the controller
+ _hostEnvironment was added to handle the image upload
 
+2045
+Display the image in views
+editted Views/Quills/Index.cshtml file 
+The body part added the content for displaying the product image
+
+2100
+Updated the database
+Add Migration Quill_Lite_AppContext.cs
+Update database
+
+2110
+Image migration completed successfully
+20240613061942_AddImage
+
+2120
+Added images tried the application
+
+2130
+Successfully updated the application to display the products
