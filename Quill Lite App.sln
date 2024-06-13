@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quill Lite App", "Quill Lite App.csproj", "{003BCA27-6DF5-41DE-912D-CC94AEE84022}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{003BCA27-6DF5-41DE-912D-CC94AEE84022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{003BCA27-6DF5-41DE-912D-CC94AEE84022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{003BCA27-6DF5-41DE-912D-CC94AEE84022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{003BCA27-6DF5-41DE-912D-CC94AEE84022}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93F0C127-2863-4C86-B4EF-2B5DA96A6B4C}
+	EndGlobalSection
+EndGlobal
