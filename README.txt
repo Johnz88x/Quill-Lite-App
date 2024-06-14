@@ -162,3 +162,7 @@ Added the new model Quill.cs
 
 2250
 Edited the Create.cshtml file for the attributes and included all the atributed 
+
+2024-06-14
+1430
+- I made some changes in index file to make a new url
