@@ -4,61 +4,67 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1 class="text-center my-4">Edit Quill</h1>
 
-<h4>Quill</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Brand" class="control-label"></label>
-                <input asp-for="Brand" class="form-control" />
-                <span asp-validation-for="Brand" class="text-danger"></span>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0">Edit Quill Details</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label asp-for="Brand" class="control-label"></label>
+                            <input asp-for="Brand" class="form-control" />
+                            <span asp-validation-for="Brand" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Material" class="control-label"></label>
+                            <input asp-for="Material" class="form-control" />
+                            <span asp-validation-for="Material" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Ratings" class="control-label"></label>
+                            <input asp-for="Ratings" class="form-control" />
+                            <span asp-validation-for="Ratings" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SizeFit" class="control-label"></label>
+                            <input asp-for="SizeFit" class="form-control" />
+                            <span asp-validation-for="SizeFit" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Color" class="control-label"></label>
+                            <input asp-for="Color" class="form-control" />
+                            <span asp-validation-for="Color" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Design" class="control-label"></label>
+                            <input asp-for="Design" class="form-control" />
+                            <span asp-validation-for="Design" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Price" class="control-label"></label>
+                            <input asp-for="Price" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="submit" value="Save" class="btn btn-primary mx-2" />
+                            <a asp-action="Index" class="btn btn-secondary mx-2">Back to List</a>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Material" class="control-label"></label>
-                <input asp-for="Material" class="form-control" />
-                <span asp-validation-for="Material" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Ratings" class="control-label"></label>
-                <input asp-for="Ratings" class="form-control" />
-                <span asp-validation-for="Ratings" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SizeFit" class="control-label"></label>
-                <input asp-for="SizeFit" class="form-control" />
-                <span asp-validation-for="SizeFit" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Color" class="control-label"></label>
-                <input asp-for="Color" class="form-control" />
-                <span asp-validation-for="Color" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Design" class="control-label"></label>
-                <input asp-for="Design" class="form-control" />
-                <span asp-validation-for="Design" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
