@@ -228,12 +228,23 @@ The migration completed successfully
 20240620044827_DesignCreate.cs 
 
 2220
-The need to uodate the database
+Then need to uodate the database
 When updating also needed to specify the database
 Specified the database using the Context and updated
 The database was updated successfully.
 
 2225
 Need to add the specific fields in the all the other files
-First editted the Index file
+First editted the Index.cshtml file to add Design field
+then editted the Index.cshtml file to add the deisgn field
+then editted the Edit.cshtml file to add the deisgn field
+then editted the create.cshtml file to add the deisgn field
+then editted the Delete.cshtml file to add the deisgn field
+then editted the Details.cshtml file to add the deisgn field
+
+2240
+Then saved the files
+Build the program to check for any errors.
+The application compledted successfully without any errors.
+
 
