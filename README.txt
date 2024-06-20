@@ -209,3 +209,31 @@ Build wthout any errors...successfully
 
 2140
 Need to add contents to the page About Us
+
+2200
+Need to add one more field to the App
+
+2205
+Opened the Quill.cs file
+Added the Design field
+
+2210
+Then did the Add-Migration
+The migration was specified error because there was more than one database 
+So need to specify the database
+Using Context specified the database
+
+2215
+The migration completed successfully
+20240620044827_DesignCreate.cs 
+
+2220
+The need to uodate the database
+When updating also needed to specify the database
+Specified the database using the Context and updated
+The database was updated successfully.
+
+2225
+Need to add the specific fields in the all the other files
+First editted the Index file
+

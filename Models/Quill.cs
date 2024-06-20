@@ -12,6 +12,7 @@ namespace Quill_Lite_App.Models
         public string? Ratings { get; set; }
         public string? SizeFit { get; set; }
         public string? Color { get; set; }
+        public string? Design { get; set; }
         public decimal Price { get; set; }
 
         public string? ImagePath { get; set; }  // Path to the uploaded image
