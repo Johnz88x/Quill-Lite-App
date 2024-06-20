@@ -189,3 +189,23 @@ Made the necessary changes and build the file without any errors
 
 2050
 Success...the application was initiated
+
+2024-06-19
+2100
+Need to add the ABout Us Page
+
+2105
+There is already a page mentioned privacy 
+Need to change the name of the page to About Us
+
+2120
+Opened the _Layout.cshtml file 
+Used Ctrl-F to find the privacy
+Changed the name to 'About Us' instead of 'Privacy'
+
+2130
+Saved the file 
+Build wthout any errors...successfully
+
+2140
+Need to add contents to the page About Us
