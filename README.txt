@@ -247,4 +247,5 @@ Then saved the files
 Build the program to check for any errors.
 The application compledted successfully without any errors.
 
-
+0925
+-Added some visual enhancing to create,delete,details,edit and index.cshtml files 
