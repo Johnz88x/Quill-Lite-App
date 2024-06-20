@@ -1,51 +1,134 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Quill_Lite_App</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Quill_Lite_App.styles.css" asp-append-version="true" />
-</head>
-<body style="background: url('https://img.freepik.com/free-photo/pink-fabric-motion-texture_53876-95926.jpg?t=st=1718857178~exp=1718860778~hmac=199d8c7986022530bdbac2479e2fa630ba31704c7543d9cd08699a77488f9ca0&w=360') no-repeat center center fixed; background-size: cover;">
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <img src="~/quilllogo.png" alt="Logo" style="height: 50px; width: auto;" />
-                <a class="navbar-brand" asp-area="" asp-controller="Quills" asp-action="Index">Quill_Lite_App</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">About Us</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+﻿@{
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Quill_Lite_App</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/Quill_Lite_App.styles.css" asp-append-version="true" />
+        <style>
+            .home-page {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                color: #333; /* Dark color for text */
+                background-color: #f5f5dc; /* Light beige background */
+            }
 
-    <footer class="border-top footer text-muted">
+            .hero {
+                background: url('~/images/hero.jpg') no-repeat center center/cover;
+                color: #f8f9fa; /* Light color for text */
+                text-align: center;
+                padding: 100px 20px;
+            }
+
+                .hero h1, .hero p {
+                    color: black; /* Set the color of the main title and subtitle to black */
+                }
+
+                .hero h1 {
+                    font-size: 3em;
+                    margin-bottom: 10px;
+                }
+
+                .hero p {
+                    font-size: 1.5em;
+                    margin-bottom: 20px;
+                }
+
+            .btn {
+                padding: 10px 20px;
+                text-decoration: none;
+                color: white;
+                border-radius: 5px;
+            }
+
+            .btn-primary {
+                background-color: #007bff;
+            }
+
+            .btn-secondary {
+                background-color: #6c757d;
+            }
+
+            .btn-info {
+                background-color: #17a2b8;
+            }
+
+            .about-preview, .featured-shawls, .sustainability-ethics {
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .shawl-gallery {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+
+            .shawl-item {
+                margin: 10px;
+                max-width: 300px;
+                text-align: center;
+            }
+
+                .shawl-item img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                .shawl-item h5 {
+                    font-size: 1.2em;
+                    margin: 10px 0;
+                }
+
+                .shawl-item p {
+                    font-size: 1em;
+                    margin-bottom: 10px;
+                }
+        </style>
+        @RenderSection("Styles", required: false)
+    </head>
+    <body style="background: url('https://img.freepik.com/free-photo/pink-fabric-motion-texture_53876-95926.jpg?t=st=1718857178~exp=1718860778~hmac=199d8c7986022530bdbac2479e2fa630ba31704c7543d9cd08699a77488f9ca0&w=360') no-repeat center center fixed; background-size: cover;">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container-fluid">
+                    <img src="~/quilllogo.png" alt="Logo" style="height: 50px; width: auto;" />
+                    <a class="navbar-brand" asp-area="" asp-controller="Quills" asp-action="Index">Quill_Lite_App</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">About Us</a>
+                            </li>
+                        </ul>
+                        <partial name="_LoginPartial" />
+                    </div>
+                </div>
+            </nav>
+        </header>
         <div class="container">
-            &copy; 2024 - Quill_Lite_App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2024 - Quill_Lite_App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
+    </body>
+    </html>
+}

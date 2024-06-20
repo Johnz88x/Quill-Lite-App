@@ -248,3 +248,140 @@ Build the program to check for any errors.
 The application compledted successfully without any errors.
 
 
+0903
+
+Hero Section
+A large background image with overlaid text:
+	-Prominent heading: "Welcome to Quill Lite"
+	-Subheading: "Where Tradition Meets Elegance"
+Call-to-action button ("Learn More") linking to the About page
+Categories Section
+Three-column layout showcasing different categories:
+	-Women
+	-Men
+	-Kids
+Each category includes:
+	-Image placeholder
+	-Category heading
+Trending Products Carousel
+Carousel displaying trending products:
+	-Multiple slides of product images
+	-Automatic or manual slide navigation
+	-Previous and Next navigation controls
+
+0930
+
+-Introduction
+
+-About Us: Highlights the core essence of the page.
+Welcome to Quill Lite: Emphasizes the brand name and its philosophy of blending tradition and elegance.
+Our Mission
+
+-Crafting Exquisite Shawls:
+We are passionate about crafting shawls that embody both timeless traditions and modern design sensibilities.
+Mission to celebrate and preserve the rich heritage of shawl making.
+Our Heritage
+
+-Craftsmanship Passed Down Generations:
+Each shawl is a testament to our craftsmanship and roots.
+Sourcing the finest materials and employing skilled artisans for meticulous attention to detail.
+Our Craft
+
+-Power of Handmade:
+Upholding traditional techniques for creating shawls that are masterpieces.
+Commitment to quality in materials, patterns, and colors that blend classic and contemporary styles.
+Our Vision
+
+-Timeless Style:
+Aim to be the leading purveyor of premium shawls known for quality, innovation, and respect for tradition.
+Connecting people to the rich history of shawl making through luxurious, fashionable pieces.
+Sustainability and Ethics
+
+-Commitment to Sustainability:
+Eco-friendly materials and fair trade practices for a positive community and environmental impact.
+Creating beauty without compromise, respecting both people and the planet.
+Join Us
+
+-Celebrating Shawl Making:
+Whether for special occasions or everyday elegance, Quill Lite offers something for everyone.
+Invite to join in celebrating the art of shawl making and finding a perfect piece that reflects personal style and story.
+Closing
+
+-Gratitude:
+Thank you for choosing Quill Lite.
+Honored to be part of your journey in finding beauty, comfort, and tradition in every shawl.
+Styling
+
+-Layout:
+Maximum width of 800px with centered alignment for easy readability.
+Font family of Arial, sans-serif, ensuring clarity and modern appeal.
+
+
+0945
+
+-Form Inputs:
+
+Brand: Input field for the brand of the Quill.
+Material: Input field for the material used.
+Ratings: Input field for the ratings or reviews.
+SizeFit: Input field for size and fit details.
+Color: Input field for color description.
+Design: Input field for design specifics.
+Price: Input field for the price of the Quill.
+ImageFile: File upload field to add a product image.
+
+-Submit Form:
+
+Fill in all required details and choose an image file.
+Click on the "Create" button to submit the form.
+Validation:
+
+-Validation messages will appear under each input field if required information is missing or incorrect.
+Back to List:
+
+-Click on the "Back to List" button to return to the list of existing Quill items (Index.cshtml).
+
+
+-added details to delete.cshtml 
+
+Confirmation Message:
+
+Upon loading, the view displays a confirmation message asking if the user is sure they want to delete the Quill item.
+
+Quill Details:
+
+Below the confirmation message, the view shows the details of the Quill item to be deleted, including Brand, Material, Ratings, SizeFit, Color, Design, and Price.
+
+Delete Button:
+
+Clicking on the "Delete" button will trigger the deletion process for the Quill item. A form is submitted with the Id of the Quill item as a hidden field.
+
+Cancel Button:
+
+Clicking on the "Back to List" button will cancel the deletion process and redirect users to the list of existing Quill items (Index.cshtml).
+
+Head Section
+Meta Tags: Defines character set and viewport for responsive design.
+Title: Dynamically sets the title of the page.
+Stylesheets:
+Bootstrap CSS: /lib/bootstrap/dist/css/bootstrap.min.css
+Custom CSS: /css/site.css and /Quill_Lite_App.styles.css
+Inline Styles: Custom styles for elements like .home-page, .hero, and .btn.
+Render Section: Optional section for additional styles (@RenderSection("Styles", required: false)).
+Body Section
+Header (<header>):
+
+Navigation bar (<nav>): Bootstrap-based navbar with a logo, brand link, and navigation links (Home and About Us).
+Main Content (<main>):
+
+Container (<div class="container">): Wraps the main content.
+Dynamic content rendered by @RenderBody().
+Footer (<footer>):
+
+-Container (<div class="container">): Footer text with copyright information and a link to the Privacy page.
+Scripts
+JavaScript Libraries:
+jQuery: /lib/jquery/dist/jquery.min.js
+Bootstrap JavaScript bundle: /lib/bootstrap/dist/js/bootstrap.bundle.min.js
+Custom JavaScript: /js/site.js for additional functionality.
+Render Section: Optional section for additional scripts (@RenderSection("Scripts", required: false)).

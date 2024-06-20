@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 using Quill_Lite_App.Data;
 using Quill_Lite_App.Models;
 
@@ -14,7 +13,7 @@ namespace Quill_Lite_App.Controllers
     public class QuillsController : Controller
     {
         private readonly Quill_Lite_AppContext _context;
-        private readonly IWebHostEnvironment _hostEnvironment; // Inject IWebHostEnvironment
+        private readonly IWebHostEnvironment _hostEnvironment;
 
         public QuillsController(Quill_Lite_AppContext context, IWebHostEnvironment hostEnvironment)
         {
@@ -25,9 +24,14 @@ namespace Quill_Lite_App.Controllers
         // GET: Quills
         public async Task<IActionResult> Index()
         {
-              return _context.Quill != null ? 
-                          View(await _context.Quill.ToListAsync()) :
-                          Problem("Entity set 'Quill_Lite_AppContext.Quill'  is null.");
+            // Ensure _context.Quill is not null before querying
+            if (_context.Quill == null)
+            {
+                return Problem("Entity set 'Quill_Lite_AppContext.Quill' is null.");
+            }
+
+            var quills = await _context.Quill.ToListAsync();
+            return View(quills);
         }
 
         // GET: Quills/Details/5
@@ -38,8 +42,8 @@ namespace Quill_Lite_App.Controllers
                 return NotFound();
             }
 
-            var quill = await _context.Quill
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var quill = await _context.Quill.FirstOrDefaultAsync(m => m.Id == id);
+
             if (quill == null)
             {
                 return NotFound();
@@ -55,37 +59,35 @@ namespace Quill_Lite_App.Controllers
         }
 
         // POST: Quills/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Brand,Material,Ratings,SizeFit,Color,Price,ImageFile")] Quill quill)
         {
-            // Handle image upload
-            if (quill.ImageFile != null)
-            {
-                string uploadPath = Path.Combine(_hostEnvironment.WebRootPath, "images");
-
-                // Ensure the directory exists
-                if (!Directory.Exists(uploadPath))
-                {
-                    Directory.CreateDirectory(uploadPath);
-                }
-
-                string fileName = Path.GetFileNameWithoutExtension(quill.ImageFile.FileName);
-                string extension = Path.GetExtension(quill.ImageFile.FileName);
-                string uniqueFileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                quill.ImagePath = Path.Combine("images", uniqueFileName);
-                string fullPath = Path.Combine(uploadPath, uniqueFileName);
-
-                using (var fileStream = new FileStream(fullPath, FileMode.Create))
-                {
-                    await quill.ImageFile.CopyToAsync(fileStream);
-                }
-            }
-
             if (ModelState.IsValid)
             {
+                // Handle image upload
+                if (quill.ImageFile != null)
+                {
+                    string uploadPath = Path.Combine(_hostEnvironment.WebRootPath, "images");
+
+                    // Ensure the directory exists
+                    if (!Directory.Exists(uploadPath))
+                    {
+                        Directory.CreateDirectory(uploadPath);
+                    }
+
+                    string fileName = Path.GetFileNameWithoutExtension(quill.ImageFile.FileName);
+                    string extension = Path.GetExtension(quill.ImageFile.FileName);
+                    string uniqueFileName = fileName + "_" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + extension;
+                    quill.ImagePath = Path.Combine("images", uniqueFileName);
+                    string fullPath = Path.Combine(uploadPath, uniqueFileName);
+
+                    using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        await quill.ImageFile.CopyToAsync(fileStream);
+                    }
+                }
+
                 _context.Add(quill);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -102,19 +104,19 @@ namespace Quill_Lite_App.Controllers
             }
 
             var quill = await _context.Quill.FindAsync(id);
+
             if (quill == null)
             {
                 return NotFound();
             }
+
             return View(quill);
         }
 
         // POST: Quills/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Brand,Material,Ratings,SizeFit,Color,Price,ImageFile")] Quill quill)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Brand,Material,Ratings,SizeFit,Color,Price,ImageFile,ImagePath")] Quill quill)
         {
             if (id != quill.Id)
             {
@@ -125,6 +127,29 @@ namespace Quill_Lite_App.Controllers
             {
                 try
                 {
+                    // Handle image upload
+                    if (quill.ImageFile != null)
+                    {
+                        string uploadPath = Path.Combine(_hostEnvironment.WebRootPath, "images");
+
+                        // Ensure the directory exists
+                        if (!Directory.Exists(uploadPath))
+                        {
+                            Directory.CreateDirectory(uploadPath);
+                        }
+
+                        string fileName = Path.GetFileNameWithoutExtension(quill.ImageFile.FileName);
+                        string extension = Path.GetExtension(quill.ImageFile.FileName);
+                        string uniqueFileName = fileName + "_" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + extension;
+                        quill.ImagePath = Path.Combine("images", uniqueFileName);
+                        string fullPath = Path.Combine(uploadPath, uniqueFileName);
+
+                        using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                        {
+                            await quill.ImageFile.CopyToAsync(fileStream);
+                        }
+                    }
+
                     _context.Update(quill);
                     await _context.SaveChangesAsync();
                 }
@@ -152,8 +177,8 @@ namespace Quill_Lite_App.Controllers
                 return NotFound();
             }
 
-            var quill = await _context.Quill
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var quill = await _context.Quill.FirstOrDefaultAsync(m => m.Id == id);
+
             if (quill == null)
             {
                 return NotFound();
@@ -169,21 +194,23 @@ namespace Quill_Lite_App.Controllers
         {
             if (_context.Quill == null)
             {
-                return Problem("Entity set 'Quill_Lite_AppContext.Quill'  is null.");
+                return Problem("Entity set 'Quill_Lite_AppContext.Quill' is null.");
             }
+
             var quill = await _context.Quill.FindAsync(id);
+
             if (quill != null)
             {
                 _context.Quill.Remove(quill);
+                await _context.SaveChangesAsync();
             }
-            
-            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
         private bool QuillExists(int id)
         {
-          return (_context.Quill?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _context.Quill.Any(e => e.Id == id);
         }
     }
 }
