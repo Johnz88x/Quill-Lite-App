@@ -1,13 +1,126 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="home-page">
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Quill Lite</h1>
+            <p>Where Tradition Meets Elegance</p>
+            <a href="@Url.Action("About", "Home")" class="btn btn-primary">Learn More</a>
+        </div>
+    </header>
 
-<div class="text-center">
-    <h1 class="display-4">Quill Lite Shawls</h1>
+    <section class="about-preview">
+        <h2>About Us</h2>
+        <p>At Quill Lite, we are passionate about crafting exquisite shawls that embody both timeless traditions and contemporary fashion. Our journey began with a simple mission: to celebrate and preserve the rich heritage of shawl making while infusing it with modern design sensibilities.</p>
+        <a href="@Url.Action("About", "Home")" class="btn btn-secondary">Read More</a>
+    </section>
 
+    <section class="featured-shawls">
+        <h2>Featured Shawls</h2>
+        <div class="shawl-gallery">
+            <!-- Example shawl items. Replace with dynamic content as needed. -->
+            <div class="shawl-item">
+                <img src="~/images/shawl1.jpg" alt="Shawl 1" />
+                <h3>Elegant Wool Shawl</h3>
+                <p>A blend of tradition and modernity.</p>
+                <a href="@Url.Action("Details", "Shawls", new { id = 1 })" class="btn btn-info">View Details</a>
+            </div>
+            <div class="shawl-item">
+                <img src="~/images/shawl2.jpg" alt="Shawl 2" />
+                <h3>Silk Heritage Shawl</h3>
+                <p>Experience luxury and comfort.</p>
+                <a href="@Url.Action("Details", "Shawls", new { id = 2 })" class="btn btn-info">View Details</a>
+            </div>
+            <!-- Add more shawl items as needed -->
+        </div>
+    </section>
+
+    <section class="sustainability-ethics">
+        <h2>Sustainability and Ethics</h2>
+        <p>We are committed to sustainable and ethical practices. From eco-friendly materials to fair trade labor practices, we strive to make a positive impact on both our community and the environment. We believe in creating beauty without compromise.</p>
+        <a href="@Url.Action("About", "Home")" class="btn btn-secondary">Learn More</a>
+    </section>
 </div>
 
+<style>
+    .home-page {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333; /* Dark color for text */
+        background-color: #f5f5dc; /* Light beige background */
+    }
 
+    .hero {
+        background: url('~/images/hero.jpg') no-repeat center center/cover;
+        color: #f8f9fa; /* Light color for text */
+        text-align: center;
+        padding: 100px 20px;
+    }
 
+        .hero h1, .hero p {
+            color: black; /* Set the color of the main title and subtitle to black */
+        }
 
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+    .btn {
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+    }
+
+    .about-preview, .featured-shawls, .sustainability-ethics {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .shawl-gallery {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .shawl-item {
+        margin: 10px;
+        max-width: 200px;
+    }
+
+        .shawl-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .shawl-item h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .shawl-item p {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+</style>
