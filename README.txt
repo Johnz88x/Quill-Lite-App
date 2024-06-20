@@ -166,3 +166,26 @@ Edited the Create.cshtml file for the attributes and included all the atributed
 2024-06-14
 1430
 - I made some changes in index file to make a new url
+
+2024-06-17
+2000
+Need to change the 'Edit', 'Details', 'Delete' actions in the App page to look like buttons
+Checked the _layout.cshtml file and needed no changes
+
+2020
+Checked the index.cshtml in QUills folder
+Found the code where to edit
+
+2025
+Editted the code to add buttons format for all the above.
+
+2030
+The buttons was added in <form> method in the format
+Ran the code and found some errors when added with @for each format
+Removed the foreach and added only the <form> method
+
+2045
+Made the necessary changes and build the file without any errors
+
+2050
+Success...the application was initiated

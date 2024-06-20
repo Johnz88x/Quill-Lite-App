@@ -61,9 +61,15 @@
                 }
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <form asp-action="Edit" asp-route-id="@item.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </form> 
+                    <form asp-action="Details" asp-route-id="@item.Id" method="get" style="display:inline;">
+                        <button type="submit" class="btn btn-info">Details</button>
+                    </form> 
+                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline;">
+                        <button type ="submit" class="btn btn-danger">Delete</button>
+                    </form>                    
             </td>
         </tr>
 }
