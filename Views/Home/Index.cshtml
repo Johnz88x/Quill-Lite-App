@@ -20,21 +20,34 @@
 
     <section class="featured-shawls">
         <h2>Featured Shawls</h2>
-        <div class="shawl-gallery">
-            <!-- Example shawl items. Replace with dynamic content as needed. -->
-            <div class="shawl-item">
-                <img src="~/images/shawl1.jpg" alt="Shawl 1" />
-                <h3>Elegant Wool Shawl</h3>
-                <p>A blend of tradition and modernity.</p>
-                <a href="@Url.Action("Details", "Shawls", new { id = 1 })" class="btn btn-info">View Details</a>
+        <div id="shawlCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="shawl-item">
+                        <img src="~/images/shawl1.jpg" alt="Shawl 1" class="d-block w-100" />
+                        <h3>Elegant Wool Shawl</h3>
+                        <p>A blend of tradition and modernity.</p>
+                        <a href="@Url.Action("Details", "Shawls", new { id = 1 })" class="btn btn-info">View Details</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="shawl-item">
+                        <img src="~/images/shawl2.jpg" alt="Shawl 2" class="d-block w-100" />
+                        <h3>Silk Heritage Shawl</h3>
+                        <p>Experience luxury and comfort.</p>
+                        <a href="@Url.Action("Details", "Shawls", new { id = 2 })" class="btn btn-info">View Details</a>
+                    </div>
+                </div>
+                <!-- Add more carousel items as needed -->
             </div>
-            <div class="shawl-item">
-                <img src="~/images/shawl2.jpg" alt="Shawl 2" />
-                <h3>Silk Heritage Shawl</h3>
-                <p>Experience luxury and comfort.</p>
-                <a href="@Url.Action("Details", "Shawls", new { id = 2 })" class="btn btn-info">View Details</a>
-            </div>
-            <!-- Add more shawl items as needed -->
+            <a class="carousel-control-prev" href="#shawlCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#shawlCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </section>
 
@@ -106,7 +119,8 @@
 
     .shawl-item {
         margin: 10px;
-        max-width: 200px;
+        max-width: 300px;
+        text-align: center;
     }
 
         .shawl-item img {
@@ -119,8 +133,18 @@
             margin: 10px 0;
         }
 
-        .shawl-item p {
-            font-size: 1em;
-            margin-bottom: 10px;
-        }
+    .shawl
+    -item p {
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
 </style>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-zM6zc1ncHiNDT3f4M1O9hXJ5nPQI7hrrdHT0D/5F9c8FfnDoW8+R3edZQG5pSA+u" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgEpPihC9sFutDzsyO0B7R6FI14k/9nWRGSg3Fq8cePjlD1PSjD" crossorigin="anonymous"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
