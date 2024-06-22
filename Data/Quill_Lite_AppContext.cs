@@ -14,7 +14,7 @@ namespace Quill_Lite_App.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Customize your model if needed
-            modelBuilder.Entity<Quill>().ToTable("Quills"); // Example customization
+            modelBuilder.Entity<Quill>().ToTable("Quill"); // Example customization
         }
     }
 }
